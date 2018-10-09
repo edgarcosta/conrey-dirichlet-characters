@@ -582,7 +582,8 @@ cdef class DirichletGroup_conrey:
         # as DirichletGroup(5, QQ)([-1]), for example, if we didn't first
         # "promote" the character to a member of the full group.
 
-        chi = self.standard_dirichlet_group()(chi)
+        chi = self.standard_dirichlet_group()(chi).minimize_base_ring()
+
 
         decomposition = chi.decomposition()
         n_even = 1
